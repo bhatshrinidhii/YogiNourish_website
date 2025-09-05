@@ -42,7 +42,7 @@ project-root/
 
 | Layer     | Tech                                |
 |-----------|-------------------------------------|
-| Frontend  | React.js, CSS                       |
+| Frontend  | Next.js, CSS                       |
 | Backend   | Node.js, Express                    |
 | Auth      | Firebase Authentication             |
 | Database  | Firebase Firestore                  |
