@@ -55,7 +55,7 @@ project-root/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/bhatshrinidhii/yoginourish.git
+git clone https://github.com/bhatshrinidhii/YogiNourish_website.git
 cd yoginourish
 ````
 
