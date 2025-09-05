@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# 🧘‍♀️ YogiNourish - Personalized Yoga & Nutrition Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+YogiNourish is a full-stack web application that provides **personalized yoga and nutrition plans** based on user-reported health issues. Designed for **physical, mental, and emotional well-being**, the app offers customized wellness content, expert-reviewed recommendations, and a clean, responsive interface.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- ✅ User Authentication (Login/Sign Up/Forgot Password)
+- 🧘 Yoga Pose Guide (Surya Namaskar with images and videos)
+- 🥗 Personalized Nutrition Plan (Based on health issue)
+- 📋 Health Issue Selector (Dropdown + text input)
+- ⭐ Feedback System (Star ratings + comments)
+- 🎨 Light/Dark Theme Toggle
+- 🔔 Notification Reminder
+- 👩‍⚕️ Doctor Recommendation
+- 💡 Help & Support Section
+- 📱 Responsive UI with multiple pages (Profile, Dashboard, Result)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📁 Folder Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
 
-### `npm test`
+project-root/
+├── backend/            # Node.js + Express backend (API server)
+│   └── index.js
+├── login/              # React frontend
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── firebase.js
+│   │   ├── Auth.css
+│   │   └── images/
+│   │       ├── pose1.jpg ...
+│   └── public/
+└── README.md
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+````
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer     | Tech                                |
+|-----------|-------------------------------------|
+| Frontend  | React.js, CSS                       |
+| Backend   | Node.js, Express                    |
+| Auth      | Firebase Authentication             |
+| Database  | Firebase Firestore                  |
+| Hosting   | Localhost (for development)         |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔧 Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1️⃣ Clone the Repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/bhatshrinidhii/yoginourish.git
+cd yoginourish
+````
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2️⃣ Backend Setup (Node + Express)
 
-## Learn More
+```bash
+cd backend
+npm install
+node index.js
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> This starts the backend server at `http://localhost:5000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 3️⃣ Frontend Setup (React App)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd login
+npm install
+npm start
+```
 
-### Analyzing the Bundle Size
+> This starts the frontend React app at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ⚙️ Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🔥 Firebase Config (`src/firebase.js`)
 
-### Advanced Configuration
+Make sure you have your Firebase config set up properly:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+// Example
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "yourapp.firebaseapp.com",
+  projectId: "yourapp",
+  storageBucket: "yourapp.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID"
+};
+```
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔐 Firebase Auth Rules (Optional)
 
-### `npm run build` fails to minify
+If you're using Firebase Firestore:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /feedback/{docId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+```
+
+---
+
+## 🙋‍♂️ Developer Notes
+
+* This app is beginner-friendly and mobile-optimized.
+* Ensure the backend and frontend are running in **parallel**.
+* Feedback is stored in Firebase's `feedback` collection.
+* You can integrate more health conditions by expanding the backend logic.
+
+---
+
+## 🌟 Feedback
+
+If you liked the project, please give it a ⭐ on GitHub!
+
+---
+
+🧘‍♂️ *Stay healthy. Stay nourished. Use YogiNourish.*
+
+---
